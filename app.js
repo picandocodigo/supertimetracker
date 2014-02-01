@@ -32,6 +32,7 @@ function saveEntry(){
 
   date = new Date(0,0,0,0);
   document.getElementById("description").value = "";
+  alert(JSON.stringify(entry));
 }
 
 function Entry(time, description){
