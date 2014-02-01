@@ -1,8 +1,17 @@
-html{ height: 100%;}
-body{
+html{
+    height: 100%;
     background: linear-gradient(160deg, #111, #222);
+}
+body{
+
     margin: 0;
     height: 100%;
+    color: #aaa;
+}
+
+a{
+    color: #545fa7;
+    text-decoration: none;
 }
 
 #logo{
@@ -30,6 +39,7 @@ body{
     padding: 40px;
     text-align: center;
     font-size: 9vmin;
+    text-shadow: 0.2vmin 0.2vmin 1vmin #ff7;
 }
 
 @media (max-width: 900px) {
@@ -66,7 +76,6 @@ body{
 
 #actions{
     width: 100%;
-    margin-top: 20px;
 }
 
 #actions button{
@@ -75,7 +84,7 @@ body{
     width: 100%;;
     height: 55px;
     font-size: 20px;
-    background: #111 url(img/save.png) no-repeat center;;
+    background: #111 url(img/save.png) no-repeat center;
 }
 
 #actions input{
@@ -96,10 +105,44 @@ input:-moz-placeholder { font-style: italic; }
     clear: both;
 }
 
-#results-table{
-    border: solid 1px;
-    padding: 10px;
-    width: 100%;
+#data{
     display: none;
+}
+
+table{
+    border: solid 1px #333;;
+    min-width: 100%;
+    margin: 0;
     margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table thead{
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+}
+
+table tbody tr{
+    font-size: 0.7em;
+    background: #333;
+    height: 30px;
+    border-bottom: 1px solid;
+}
+
+#value{
+    background: #000;
+    font-family: Courier;
+    font-size: 0.8em;
+    padding: 10px;
+    text-align: left;
+    margin: 10px;
+}
+
+#footer{
+    width: 100%;
+    clear: both;
+    display: block;
+    text-align:center;
+    font-size: 0.7em;;
 }
