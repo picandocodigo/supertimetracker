@@ -3,16 +3,25 @@ var date = new Date(0,0,0,0);
 var time = document.getElementById("time");
 var save = document.getElementById("save");
 
+var running = false;
+var interval;
+
 time.addEventListener("click", startTimer);
 save.addEventListener("click", saveEntry);
 
 function startTimer(){
-  window.setInterval(function(){
-    date.setSeconds(date.getSeconds() + 1);
-    document.getElementById("seconds").innerHTML = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
-    document.getElementById("minutes").innerHTML = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
-    document.getElementById("hours").innerHTML = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
-  }, 1000)
+  if (running){
+    clearInterval(interval);
+    running = false;
+  }else{
+    running = true;
+    interval = window.setInterval(function(){
+      date.setSeconds(date.getSeconds() + 1);
+      document.getElementById("seconds").innerHTML = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
+      document.getElementById("minutes").innerHTML = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
+      document.getElementById("hours").innerHTML = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
+    }, 1000);
+  }
 }
 
 function saveEntry(){
