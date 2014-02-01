@@ -1,22 +1,85 @@
+body{
+    background: #333;
+}
+
 #container{
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 50%;
     color: #fff;
+    text-align: center;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 #time{
-    background: #060;
-    width: 400px;
+    background: #000;
     display: block;
     font-weight: bold;
     padding: 40px;
-    text-align: center
+    text-align: center;
+    font-size: 9vmin;
+}
+
+@media (max-width: 900px) {
+    #time{
+        font-size: 6vmin;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 630px) {
+    #time{
+        font-size: 4vmin;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    #time{
+        font-size: 3.5vmin;
+        padding: 30px 10px;
+    }
+}
+
+#time span{
+    padding: 5px;
+    margin: 2px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#actions{
+    width: 100%;
+    margin-top: 20px;
+}
+
+#actions button{
+    background: #111;
+    border: none;
+    color: #f00;
+    width: 100%;;
+    height: 40px;
+}
+
+#actions input{
+    background: #ff7;
+    border: none;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.clear{
+    clear: both;
 }
 
 #results-table{
     border: solid 1px;
-    margin: 20px;
     padding: 10px;
-    width: 400px;
+    width: 100%;
     display: none;
+    margin-top: 20px;
 }
