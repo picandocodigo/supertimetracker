@@ -39,7 +39,12 @@ a{
     padding: 40px;
     text-align: center;
     font-size: 9vmin;
-    text-shadow: 0.2vmin 0.2vmin 1vmin #ff7;
+    text-shadow: 2px 2px 5px #ff7;
+    -webkit-transition: background-color 300ms linear;
+    -moz-transition: background-color 300ms linear;
+    -o-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms;
 }
 
 @media (max-width: 900px) {
@@ -142,7 +147,7 @@ table tbody tr{
 #footer{
     width: 100%;
     clear: both;
-    display: block;
+    display: none;
     text-align:center;
     font-size: 0.7em;;
 }
