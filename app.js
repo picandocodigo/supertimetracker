@@ -8,11 +8,13 @@ document.getElementById("save").addEventListener("click", saveEntry);
 document.getElementById("get-json").addEventListener("click", getJSON);
 document.getElementById("get-csv").addEventListener("click", getCSV);
 
+// Check if we have entries on our local storage
 if (localStorage.getItem("entries")){
   entries = JSON.parse(localStorage.getItem("entries"));
   getTable();
 }
 
+// Timer was running, check local storage
 if (localStorage.getItem("time")){
   date = new Date(localStorage.getItem("time"));
   setTimer();
@@ -47,6 +49,7 @@ function saveEntry(){
   document.getElementById("data").style.display = "block";
 
   date = new Date(0,0,0,0);
+  localStorage.setItem("time", date);
   document.getElementById("description").value = "";
   clearInterval(interval);
   running = false;
@@ -116,7 +119,11 @@ function printEntry(entry){
 // Auxiliar
 
 function formatNumber(number){
-  return (number < 10) ? '0' + number : number;
+  var result = number.toString().split(":");
+  for(var i = 0; i < result.length; i++){
+    result[i] = (parseInt(result[i]) < 10) ? '0' + result[i] : result[i];
+  }
+  return result.join(":");
 }
 
 function setTimer(){
