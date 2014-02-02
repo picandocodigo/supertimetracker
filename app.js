@@ -13,21 +13,29 @@ if (localStorage.getItem("entries")){
   getTable();
 }
 
+if (localStorage.getItem("time")){
+  date = new Date(localStorage.getItem("time"));
+  setTimer();
+  if (localStorage.getItem("running") == "true"){
+    startTimer();
+  }
+}
+
 function startTimer(){
   document.getElementById("time").style.background = "#0f0";
-  if (running){
-    clearInterval(interval);
-    running = false;
-  }else{
-    running = true;
-    interval = window.setInterval(function(){
-      date.setSeconds(date.getSeconds() + 1);
-      setTimer();
-    }, 1000);
-  }
   window.setTimeout(function(){
     document.getElementById("time").style.background = "#000";
   }, 150);
+
+  if (running){
+    clearInterval(interval);
+    running = false;
+    localStorage.setItem("running", false);
+    localStorage.setItem("time", date);
+  }else{
+    runTimer();
+    localStorage.setItem("running", true);
+  }
 }
 
 function saveEntry(){
@@ -43,6 +51,15 @@ function saveEntry(){
   clearInterval(interval);
   running = false;
   setTimer();
+}
+
+function runTimer(){
+  running = true;
+  interval = window.setInterval(function(){
+    date.setSeconds(date.getSeconds() + 1);
+    setTimer();
+    localStorage.setItem("time", date);
+  }, 1000);
 }
 
 function getTable(){
