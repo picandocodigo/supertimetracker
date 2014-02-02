@@ -1,3 +1,20 @@
+/*
+    Copyright 2014 - Fernando Briano
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 var date = new Date(0,0,0,0);
 var running = false;
 var interval;
@@ -7,6 +24,7 @@ document.getElementById("time").addEventListener("click", startTimer);
 document.getElementById("save").addEventListener("click", saveEntry);
 document.getElementById("get-json").addEventListener("click", getJSON);
 document.getElementById("get-csv").addEventListener("click", getCSV);
+document.getElementById("menu").addEventListener("click", toggleInfo);
 
 // Check if we have entries on our local storage
 if (localStorage.getItem("entries")){
@@ -135,4 +153,13 @@ function setTimer(){
 function getFormattedDate(date){
   date = new Date(date);
   return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+}
+
+function toggleInfo(){
+  var info =  document.getElementById("info");
+  if(info.classList.contains("visible")){
+    info.className = "hidden";
+  } else {
+    info.className = "visible";
+  }
 }
