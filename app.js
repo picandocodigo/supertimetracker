@@ -59,7 +59,12 @@ function startTimer(){
 }
 
 function saveEntry(){
-  entry = new Entry(date.getHours() + ":" + date.getMinutes(), document.getElementById("description").value);
+  description = document.getElementById("description").value;
+  if (description == ''){
+    alert("Please add a description to your current task.");
+    return;
+  }
+  entry = new Entry(date.getHours() + ":" + date.getMinutes(), description);
   entries.push(entry);
   localStorage.setItem("entries", JSON.stringify(entries));
 
@@ -163,3 +168,11 @@ function toggleInfo(){
     info.className = "visible";
   }
 }
+
+// Analytics
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2107177-11', 'supertimetracker.com');
+ga('send', 'pageview');
