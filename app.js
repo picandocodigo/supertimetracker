@@ -25,6 +25,7 @@ document.getElementById("save").addEventListener("click", saveEntry);
 document.getElementById("get-json").addEventListener("click", getJSON);
 document.getElementById("get-csv").addEventListener("click", getCSV);
 document.getElementById("menu").addEventListener("click", toggleInfo);
+document.getElementById("close-info").addEventListener("click", toggleInfo);
 
 // Check if we have entries on our local storage
 if (localStorage.getItem("entries")){

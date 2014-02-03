@@ -13,13 +13,8 @@ a{
     text-decoration: none;
 }
 
-#logo{
-    padding: 20px;
-    height: 117px;
-}
-
 #container{
-    width: 60%;
+    width: 900px;
     height: 50%;
     color: #fff;
     text-align: center;
@@ -44,34 +39,26 @@ a{
     -o-transition: background-color 300ms linear;
     -ms-transition: background-color 300ms linear;
     transition: background-color 300ms;
+    cursor: pointer;
 }
 
 @media (max-width: 900px) {
+    #container{
+        width: 100%;
+    }
     #time{
-        font-size: 6vmin;
+        font-size: 8vmin;
         padding: 30px;
     }
 }
 
 @media (max-width: 630px) {
     #time{
-        font-size: 4vmin;
+        font-size: 7vmin;
         padding: 30px;
     }
 }
 
-@media (max-width: 400px) {
-    #time{
-        font-size: 3.5vmin;
-        padding: 30px 10px;
-    }
-}
-
-@media (max-width: 380px) {
-    #logo{
-        height: 100px;
-    }
-}
 #time span{
     padding: 5px;
     margin: 2px;
@@ -175,6 +162,14 @@ table tbody tr{
     margin: auto;
     padding: 30px;
     font-size: 0.9em;
+}
+
+#close-info{
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
 
 .meta{
