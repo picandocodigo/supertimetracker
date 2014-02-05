@@ -24,8 +24,13 @@ document.getElementById("time").addEventListener("click", startTimer);
 document.getElementById("save").addEventListener("click", saveEntry);
 document.getElementById("get-json").addEventListener("click", getJSON);
 document.getElementById("get-csv").addEventListener("click", getCSV);
-document.getElementById("menu").addEventListener("click", toggleInfo);
-document.getElementById("close-info").addEventListener("click", toggleInfo);
+document.getElementById("menu").addEventListener("click", function(){
+  toggleVisible("info");
+});
+document.getElementById("close-info").addEventListener("click", function(){
+  toggleVisible("info");
+});
+document.getElementById("remove-entries").addEventListener("click", removeEntries);
 
 // Check if we have entries on our local storage
 if (localStorage.getItem("entries")){
@@ -60,24 +65,28 @@ function startTimer(){
 }
 
 function saveEntry(){
-  description = document.getElementById("description").value;
-  if (description == ''){
-    alert("Please add a description to your current task.");
-    return;
+  if ( date > new Date(0,0,0,0) ){
+    description = document.getElementById("description").value;
+    if (description == ''){
+      alert("Please add a description to your current task.");
+      return;
+    }
+    entry = new Entry(date.getHours() + ":" + date.getMinutes(), description);
+    entries.push(entry);
+    localStorage.setItem("entries", JSON.stringify(entries));
+
+    document.getElementById("results").insertAdjacentHTML("afterend", printEntry(entry));
+    if (document.getElementById("data").classList.contains("hidden") ){
+      toggleVisible("data");
+    }
+
+    date = new Date(0,0,0,0);
+    localStorage.setItem("time", date);
+    document.getElementById("description").value = "";
+    clearInterval(interval);
+    running = false;
+    setTimer();
   }
-  entry = new Entry(date.getHours() + ":" + date.getMinutes(), description);
-  entries.push(entry);
-  localStorage.setItem("entries", JSON.stringify(entries));
-
-  document.getElementById("results").insertAdjacentHTML("afterend", printEntry(entry));
-  document.getElementById("data").style.display = "block";
-
-  date = new Date(0,0,0,0);
-  localStorage.setItem("time", date);
-  document.getElementById("description").value = "";
-  clearInterval(interval);
-  running = false;
-  setTimer();
 }
 
 function runTimer(){
@@ -91,10 +100,14 @@ function runTimer(){
 
 function getTable(){
   if(entries.length > 0){
+    toggleVisible("data");
     document.getElementById("data").style.display = "block";
     for (var i = 0; i < entries.length; i++){
       document.getElementById("results").insertAdjacentHTML("afterend", printEntry(entries[i]));
     }
+  } else {
+    toggleVisible("data");
+    document.getElementById("results").innerHTML = "";
   }
 }
 
@@ -140,6 +153,14 @@ function printEntry(entry){
   return result;
 }
 
+function removeEntries(){
+  if (window.confirm("Do you really want to remove all saved entries? This can't be undone.")){
+    entries = new Array();
+    localStorage.setItem("entries", new Array() );
+    getTable();
+  }
+}
+
 // Auxiliar
 
 function formatNumber(number){
@@ -161,12 +182,12 @@ function getFormattedDate(date){
   return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
 }
 
-function toggleInfo(){
-  var info =  document.getElementById("info");
-  if(info.classList.contains("visible")){
-    info.className = "hidden";
+function toggleVisible(id){
+  var thing =  document.getElementById(id);
+  if(thing.classList.contains("hidden")){
+    thing.className = "visible";
   } else {
-    info.className = "visible";
+    thing.className = "hidden";
   }
 }
 

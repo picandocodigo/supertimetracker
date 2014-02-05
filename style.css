@@ -96,8 +96,16 @@ input:-moz-placeholder { font-style: italic; }
     clear: both;
 }
 
-#data{
-    display: none;
+.report{
+    background: #545fa7;
+    color: #fff;
+    border: 0;
+    margin: 10px;
+    padding: 10px;
+}
+
+.danger{
+    background: #f33;
 }
 
 table{
