@@ -59,6 +59,15 @@ a{
     }
 }
 
+@media (max-width: 400px){
+    #logo{
+        max-width: 100%;
+    }
+    #container{
+        margin-top: 35%;
+    }
+}
+
 #time span{
     padding: 5px;
     margin: 2px;
@@ -178,6 +187,10 @@ table tbody tr{
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+
+#data{
+    word-wrap: break-word;
 }
 
 .meta{
