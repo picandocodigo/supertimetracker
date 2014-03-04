@@ -19,10 +19,11 @@ a{
 
 #logo{
     text-align: center;
+    margin-top: 1em;
 }
 
 #container{
-    width: 900px;
+    width: 600px;
     height: 50%;
     text-align: center;
     position: absolute;
@@ -52,7 +53,7 @@ a{
 
 @media (max-width: 900px) {
     #container{
-        width: 100%;
+        width: 60%;
     }
     #time{
         font-size: 8vmin;
@@ -60,12 +61,26 @@ a{
     }
 }
 
-@media (max-width: 630px) {
+@media (max-width: 730px) {
+    #container{
+        width: 60%;
+    }
     #time{
         font-size: 7vmin;
         padding: 30px;
     }
 }
+
+@media (max-width: 660px) {
+    #container{
+        width: 80%;
+    }
+    #time{
+        font-size: 7vmin;
+        padding: 30px;
+    }
+}
+
 
 @media (max-width: 400px){
     #logo{
@@ -74,11 +89,14 @@ a{
     #container{
         margin-top: 35%;
     }
+    #time{
+        padding: 8vmin;
+        font-size: 6vmin;
+    }
 }
 
+
 #time span{
-    padding: 5px;
-    margin: 2px;
     font-family:'Conv_pixelmix',Sans-Serif;
 }
 
@@ -161,10 +179,10 @@ table tbody tr{
     position: absolute;
     top: 10px;
     right: 10px;
-    font-family: 'Press Start 2P', cursive;
+    font-family:'Conv_pixelmix',Sans-Serif;
     cursor: hand;
     background: #fff;
-    padding: 5px;
+    padding: 7px;
     border-radius: 20px;
 }
 
