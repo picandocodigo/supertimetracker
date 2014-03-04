@@ -50,7 +50,7 @@ if (localStorage.getItem("time")){
 function startTimer(){
   document.getElementById("time").style.background = "#0f0";
   window.setTimeout(function(){
-    document.getElementById("time").style.background = "#000";
+    document.getElementById("time").style.background = "#fff";
   }, 150);
 
   if (running){
