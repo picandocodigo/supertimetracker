@@ -62,6 +62,7 @@ function startTimer(){
     runTimer();
     localStorage.setItem("running", true);
   }
+  vibrate();
 }
 
 function saveEntry(){
@@ -85,7 +86,9 @@ function saveEntry(){
     document.getElementById("description").value = "";
     clearInterval(interval);
     running = false;
+    vibrate();
     setTimer();
+    var notification = new Notification("Super Time Tracker - Entry saved " + description);
   }
 }
 
@@ -199,4 +202,10 @@ if (location.host == "supertimetracker.com"){
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-2107177-11', 'supertimetracker.com');
   ga('send', 'pageview');
+}
+
+function vibrate(){
+  if(window.navigator.vibrate){
+    navigator.vibrate(250);
+  }
 }
