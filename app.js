@@ -15,22 +15,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-var date = new Date(0,0,0,0);
+var date = new Date(0, 0, 0, 0);
 var running = false;
 var interval;
-var entries = new Array();
+var entries = [];
 
-document.getElementById("time").addEventListener("click", startTimer);
-document.getElementById("save").addEventListener("click", saveEntry);
-document.getElementById("get-json").addEventListener("click", getJSON);
-document.getElementById("get-csv").addEventListener("click", getCSV);
-document.getElementById("menu").addEventListener("click", function(){
-  toggleVisible("info");
-});
-document.getElementById("close-info").addEventListener("click", function(){
-  toggleVisible("info");
-});
-document.getElementById("remove-entries").addEventListener("click", removeEntries);
 
 // Check if we have entries on our local storage
 if (localStorage.getItem("entries")){
@@ -68,7 +57,7 @@ function startTimer(){
 function saveEntry(){
   if ( date > new Date(0,0,0,0) ){
     description = document.getElementById("description").value;
-    if (description == ''){
+    if (description === ''){
       alert("Please add a description to your current task.");
       return;
     }
@@ -141,25 +130,25 @@ function Entry(time, description){
 }
 
 function printEntry(entry){
-  var result = new Array();
+  var result = [];
   result = "<tr>";
   result += "<td>";
   result += getFormattedDate(entry.date);
-  result += "</td>"
+  result += "</td>";
   result += "<td>";
-  result += entry.description
-  result += "</td>"
+  result += entry.description;
+  result += "</td>";
   result += "<td>";
   result += formatNumber(entry.time);
-  result += "</td>"
-  result += "</tr>"
+  result += "</td>";
+  result += "</tr>";
   return result;
 }
 
 function removeEntries(){
   if (window.confirm("Do you really want to remove all saved entries? This can't be undone.")){
-    entries = new Array();
-    localStorage.setItem("entries", new Array() );
+    entries = [];
+    localStorage.setItem("entries", [] );
     getTable();
   }
 }
@@ -209,3 +198,15 @@ function vibrate(){
     navigator.vibrate(250);
   }
 }
+
+document.getElementById("time").addEventListener("click", startTimer);
+document.getElementById("save").addEventListener("click", saveEntry);
+document.getElementById("get-json").addEventListener("click", getJSON);
+document.getElementById("get-csv").addEventListener("click", getCSV);
+document.getElementById("menu").addEventListener("click", function(){
+  toggleVisible("info");
+});
+document.getElementById("close-info").addEventListener("click", function(){
+  toggleVisible("info");
+});
+document.getElementById("remove-entries").addEventListener("click", removeEntries);
