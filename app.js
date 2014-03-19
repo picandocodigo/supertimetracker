@@ -20,7 +20,6 @@ var running = false;
 var interval;
 var entries = [];
 
-
 // Check if we have entries on our local storage
 if (localStorage.getItem("entries")){
   entries = JSON.parse(localStorage.getItem("entries"));
