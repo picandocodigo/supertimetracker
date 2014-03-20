@@ -11,7 +11,6 @@ body{
     margin: 0;
     color: #2b1324;
     height: 100%;
-    overflow: hidden;
 }
 
 a{
@@ -20,7 +19,8 @@ a{
 
 #logo{
     text-align: center;
-    margin-top: 1em;
+    position: relative;
+    top: 1em;
 }
 
 #container{
