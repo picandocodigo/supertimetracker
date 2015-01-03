@@ -42,11 +42,13 @@ function startTimer(){
   }, 150);
 
   if (running){
+    document.getElementById("timer").innerHTML = "&#9654;";
     clearInterval(interval);
     running = false;
     localStorage.setItem("running", false);
     localStorage.setItem("time", date);
   }else{
+    document.getElementById("timer").innerHTML = "&#9646;&#9646;";
     runTimer();
     localStorage.setItem("running", true);
   }

@@ -50,6 +50,7 @@ a{
     -ms-transition: background-color 300ms linear;
     transition: background-color 300ms;
     cursor: pointer;
+    position: relative;
 }
 
 @media (max-width: 900px) {
@@ -99,6 +100,15 @@ a{
 
 #time span{
     font-family:'Conv_pixelmix',Sans-Serif;
+}
+
+#timer{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 0;
+    margin:0;
+    font-size: 20px;
 }
 
 #actions{
