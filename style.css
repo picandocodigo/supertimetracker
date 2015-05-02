@@ -53,51 +53,6 @@ a{
     position: relative;
 }
 
-@media (max-width: 900px) {
-    #container{
-        width: 60%;
-    }
-    #time{
-        font-size: 8vmin;
-        padding: 30px;
-    }
-}
-
-@media (max-width: 730px) {
-    #container{
-        width: 60%;
-    }
-    #time{
-        font-size: 7vmin;
-        padding: 30px;
-    }
-}
-
-@media (max-width: 660px) {
-    #container{
-        width: 80%;
-    }
-    #time{
-        font-size: 7vmin;
-        padding: 30px;
-    }
-}
-
-
-@media (max-width: 400px){
-    #logo{
-        max-width: 100%;
-    }
-    #container{
-        margin-top: 35%;
-    }
-    #time{
-        padding: 8vmin;
-        font-size: 6vmin;
-    }
-}
-
-
 #time span{
     font-family:'Conv_pixelmix',Sans-Serif;
 }
@@ -254,4 +209,55 @@ table tbody tr{
 
 .meta{
     font-size: 0.7em;
+}
+
+@media (max-width: 900px) {
+    #container{
+        width: 60%;
+    }
+    #time{
+        font-size: 8vmin;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 730px) {
+    #container{
+        width: 60%;
+    }
+    #time{
+        font-size: 7vmin;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 660px) {
+    #container{
+        width: 80%;
+    }
+    #time{
+        font-size: 7vmin;
+        padding: 30px;
+    }
+}
+
+
+@media (max-width: 400px){
+    #logo{
+        max-width: 100%;
+    }
+    #container{
+        margin-top: 35%;
+        width: 90%;
+    }
+    #time{
+        padding: 6vmin;
+        font-size: 10vmin;
+    }
+    #timer, #reset{
+        font-size: 9vmin;
+    }
+    #save{
+        width: 100%;
+    }
 }
