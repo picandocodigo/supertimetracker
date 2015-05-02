@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.2",
   "name": "Super Time Tracker",
   "description": "Super simple Time Tracker",
   "launch_path": "/index.html",
@@ -14,14 +14,11 @@
   },
   "developer": {
     "name": "Fernando Briano",
-    "url": "http://picandocodigo.net"
+    "url": "http://fernandobriano.com"
   },
   "locales": {
     "es": {
-      "description": "Gestor de tiempo super simple",
-      "developer": {
-        "url": "http://picandocodigo.net"
-      }
+      "description": "Gestor de tiempo super simple"
     }
   },
   "default_locale": "en",
