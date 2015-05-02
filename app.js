@@ -36,10 +36,7 @@ if (localStorage.getItem("time")){
 }
 
 function startTimer(){
-  document.getElementById("time").style.background = "#0f0";
-  window.setTimeout(function(){
-    document.getElementById("time").style.background = "#fff";
-  }, 150);
+  colorTransition();
 
   if (running){
     document.getElementById("timer").innerHTML = "&#9654;";
@@ -53,6 +50,22 @@ function startTimer(){
     localStorage.setItem("running", true);
   }
   vibrate();
+}
+
+function resetTimer(){
+  if( window.confirm("Do you really want to reset the timer to 0?") ){
+    colorTransition();
+    date = new Date(0, 0, 0, 0);
+    setTimer();
+    return false;
+  }
+}
+
+function colorTransition(){
+  document.getElementById("time").style.background = "#0f0";
+  window.setTimeout(function(){
+    document.getElementById("time").style.background = "#fff";
+  }, 150);
 }
 
 function saveEntry(){
@@ -184,16 +197,6 @@ function toggleVisible(id){
   }
 }
 
-// Analytics
-if (location.host == "supertimetracker.com"){
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-2107177-11', 'supertimetracker.com');
-  ga('send', 'pageview');
-}
-
 function vibrate(){
   if(window.navigator.vibrate){
     navigator.vibrate(250);
@@ -201,6 +204,7 @@ function vibrate(){
 }
 
 document.getElementById("time").addEventListener("click", startTimer);
+document.getElementById("reset").addEventListener("click", resetTimer);
 document.getElementById("save").addEventListener("click", saveEntry);
 document.getElementById("get-json").addEventListener("click", getJSON);
 document.getElementById("get-csv").addEventListener("click", getCSV);
