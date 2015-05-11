@@ -11,6 +11,7 @@ body{
     margin: 0;
     color: #2b1324;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a{
@@ -140,6 +141,10 @@ table tbody tr{
     font-size: 0.7em;
     height: 30px;
     border-bottom: 1px solid;
+}
+
+table tbody tr td{
+    padding: 1em;
 }
 
 #value{
