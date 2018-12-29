@@ -79,8 +79,8 @@ function saveEntry(){
     entry = new Entry(date.getHours() + ":" + date.getMinutes(), description);
     entries.push(entry);
     localStorage.setItem("entries", JSON.stringify(entries));
+    document.getElementById("results").innerHTML += printEntry(entry)
 
-    document.getElementById("results").insertAdjacentHTML("afterend", printEntry(entry));
     if (document.getElementById("data").classList.contains("hidden") ){
       toggleVisible("data");
     }
@@ -110,17 +110,18 @@ function getTable(){
     toggleVisible("data");
     document.getElementById("data").style.display = "block";
     for (var i = 0; i < entries.length; i++){
-      document.getElementById("results").insertAdjacentHTML("afterend", printEntry(entries[i]));
+      document.getElementById("results").innerHTML += printEntry(entries[i])
     }
   } else {
     toggleVisible("data");
     document.getElementById("results").innerHTML = "";
+    document.getElementById("value").className = "hidden";
   }
 }
 
 function getJSON(){
   if(entries.length > 0){
-    document.getElementById("value").innerHTML = "";
+    showValue()
     for (var i = 0; i < entries.length; i++){
       document.getElementById("value").innerHTML += JSON.stringify(entries[i]) + "</br>";
     }
@@ -129,6 +130,7 @@ function getJSON(){
 
 function getCSV(){
   if(entries.length > 0){
+    showValue()
     document.getElementById("value").innerHTML = "Date; Description; Time<br/>";
     for (var i = 0; i < entries.length; i++){
       document.getElementById("value").innerHTML += getFormattedDate(entries[i].date) + ";" + entries[i].description + ";" + formatNumber(entries[i].time) + "<br/>";
@@ -195,6 +197,14 @@ function toggleVisible(id){
     thing.className = "visible";
   } else {
     thing.className = "hidden";
+  }
+}
+
+function showValue(){
+  valueDiv = document.getElementById("value")
+  valueDiv.innerHTML = "";
+  if(!valueDiv.classList.contains("visible")){
+    valueDiv.className = "visible";
   }
 }
 
