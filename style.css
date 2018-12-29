@@ -7,7 +7,7 @@
 }
 
 body{
-  background: #1e2928;
+  background: #4c6764;
   margin: 0;
   color: #2b1324;
   height: 100%;
@@ -180,17 +180,28 @@ table tbody tr td{
 }
 
 #info{
-  width: 50%;
-  z-index: 100;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 5em;;
+  background-color: #9bb5b2;
   background: #fff;
+  box-shadow: 10px 10px 2px 1px rgba(0, 0, 0, 0.7);
+  font-size: 0.9em;
+  left: 0;
   margin: auto;
   padding: 30px;
-  font-size: 0.9em;
+  position: absolute;
+  right: 0;
+  top: 5em;;
+  width: 500px;
+  z-index: 100;
+}
+
+#info.visible{
+  opacity: 1;
+  transition: visibility 1s ease-in-out 400ms, opacity 400ms;
+}
+
+#info.hidden {
+  opacity: 0;
+  transition: visibility 1s ease-in-out 400ms, opacity 400ms;
 }
 
 #close-info{
@@ -224,6 +235,9 @@ table tbody tr td{
     font-size: 7vmin;
     padding: 30px;
   }
+  #info{
+    width: 60%;
+  }
 }
 
 @media (max-width: 730px) {
@@ -243,6 +257,9 @@ table tbody tr td{
   #time{
     font-size: 8vmin;
     padding: 20px;
+  }
+  #info{
+    width: 80%;
   }
 }
 
