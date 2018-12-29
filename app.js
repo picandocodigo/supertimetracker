@@ -19,6 +19,7 @@ var date = new Date(0, 0, 0, 0);
 var running = false;
 var interval;
 var entries = [];
+var year = (new Date()).getFullYear()
 
 // Check if we have entries on our local storage
 if (localStorage.getItem("entries")){
@@ -215,3 +216,4 @@ document.getElementById("close-info").addEventListener("click", function(){
   toggleVisible("info");
 });
 document.getElementById("remove-entries").addEventListener("click", removeEntries);
+document.getElementById("year").innerHTML = year;
