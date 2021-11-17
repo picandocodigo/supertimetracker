@@ -15,11 +15,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-var date = new Date(0, 0, 0, 0);
+var date = newDate();
 var running = false;
 var interval;
 var entries = [];
-var year = (new Date()).getFullYear()
+var year = date.getFullYear()
 
 // Check if we have entries on our local storage
 if (localStorage.getItem("entries")){
@@ -34,6 +34,14 @@ if (localStorage.getItem("time")){
   if (localStorage.getItem("running") == "true"){
     startTimer();
   }
+}
+
+function newDate() {
+  var newDate = new Date();
+  newDate.setHours(0);
+  newDate.setMinutes(0);
+  newDate.setSeconds(0);
+  return newDate;
 }
 
 function startTimer(){
@@ -56,7 +64,7 @@ function startTimer(){
 function resetTimer(){
   if( window.confirm("Do you really want to reset the timer to 0?") ){
     colorTransition();
-    date = new Date(0, 0, 0, 0);
+    date = newDate();
     setTimer();
     return false;
   }
@@ -70,7 +78,7 @@ function colorTransition(){
 }
 
 function saveEntry(){
-  if ( date > new Date(0,0,0,0) ){
+  if ( date > newDate() ){
     description = document.getElementById("description").value;
     if (description === ''){
       alert("Please add a description to your current task.");
@@ -85,7 +93,7 @@ function saveEntry(){
       toggleVisible("data");
     }
 
-    date = new Date(0,0,0,0);
+    date = newDate();
     localStorage.setItem("time", date);
     document.getElementById("description").value = "";
     clearInterval(interval);
