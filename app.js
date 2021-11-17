@@ -90,6 +90,8 @@ function saveEntry(){
     document.getElementById("description").value = "";
     clearInterval(interval);
     running = false;
+    document.getElementById("timer").innerHTML = "&#9654;";
+    localStorage.setItem("running", false);
     vibrate();
     setTimer();
     var notification = new Notification("Super Time Tracker - Entry saved " + description);
