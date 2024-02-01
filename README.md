@@ -1,6 +1,6 @@
 # Super Simple Time Tracker
 
-JavaScript time tracker - http://supertimetracker.com
+JavaScript time tracker - https://supertimetracker.com
 
 ## Instructions:
 
